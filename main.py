@@ -1,7 +1,11 @@
 import urllib.parse as urllib
 
 def parse_parameters(query: str) -> dict:
-    return {}
+    url=query
+    d = url.split('/?')[0]
+    d = urllib.urlparse(url)
+    qd = dict(urllib.parse_qsl(d.query))
+    return qd
 
 
 def parse_cookies(query: str) -> dict:
