@@ -29,3 +29,11 @@ if __name__ == '__main__':
     # Tests for function "parse_cookies"
     assert parse_cookies('') == {}
     assert parse_cookies('name=Dima;') == {'name': 'Dima'}
+    assert parse_cookies('cookie1=value1; cookie2=value2;') == {'cookie1': 'value1', 'cookie2': 'value2'}
+    assert parse_cookies('domain=site.com;') == {'domain': 'site.com'}
+    assert parse_cookies('path=/admin;') == {'path': '/admin'}
+    assert parse_cookies('path=/admin; domain=site.com;') == {'path': '/admin', 'domain': 'site.com'}
+    assert parse_cookies('qwerty=219ffwef9w0f; Domain=somecompany.co.uk; Path=/; Expires=Wed;') == {'qwerty': '219ffwef9w0f', 'Domain': 'somecompany.co.uk', 'Path': '/', 'Expires': 'Wed'}
+    assert parse_cookies('user=John; path=/;') == {'user': 'John', 'path': '/'}
+    assert parse_cookies('user=John; max-age=3600;') == {'user': 'John', 'max-age': '3600'}
+    assert parse_cookies('path=/;') == {'path': '/'}
