@@ -1,3 +1,5 @@
+import urllib.parse as urllib
+
 def parse_parameters(query: str) -> dict:
     return {}
 
