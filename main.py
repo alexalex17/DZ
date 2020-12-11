@@ -9,7 +9,9 @@ def parse_parameters(query: str) -> dict:
 
 
 def parse_cookies(query: str) -> dict:
-    return {}
+    S=query
+    D=dict(i.split('=') for i in S.replace(';', '').split())
+    return D
 
 
 if __name__ == '__main__':
